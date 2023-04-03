@@ -21,3 +21,5 @@ let auto = {
     apagado: function(){
         document.write(`<p>Apagando su ${this.marca} ${this.modelo}.</p>`)}
     }
+    auto.encendido();
+    auto.apagado();
