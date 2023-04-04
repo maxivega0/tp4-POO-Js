@@ -42,5 +42,5 @@ listaProductos.push(new Producto(01, "Azucar", 150));
 listaProductos.push(new Producto(02, "Harina", 100));
 listaProductos.push(new Producto(03, "Fideos", 50));
 listaProductos.forEach(producto => {
-    document.write(producto.imprimirDatos())
+    producto.imprimirDatos()
 });
