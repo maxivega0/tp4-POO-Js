@@ -88,7 +88,7 @@ function mostrarTabla() {
   });
   document.write(`</tr></tbody>
 </table> <hr>`);
-}
+} 
 mostrarTabla();
 
 function filtrarProtectores() {
