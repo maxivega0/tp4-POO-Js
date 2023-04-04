@@ -7,7 +7,7 @@
 //* Buscar un producto serum y mostrarlo por pantalla,
 
 //* Buscar un producto 'Bruma’ y mostrar un mensaje adecuado para el usuario si el producto no existe en el array.
-
+let position = [];
 let listaProductos = [
   {
     nombreProducto: "Hidratante facial",
@@ -67,3 +67,101 @@ let listaProductos = [
   },
   { nombreProducto: "Agua micellar", precio: 2890, categoria: "Limpieza" },
 ];
+
+function mostrarTabla() {
+  document.write(`<h1>Tabla de productos </h1>
+<table class="table-bordered border-primary-subtle"><thead>
+<tr>
+<th>Producto</th>
+<th>Precio</th>
+<th>Categoria</th>
+</tr>
+</thead>
+<tbody>`);
+  listaProductos.forEach((element) => {
+    document.write(
+      `<tr>
+      <td>${element.nombreProducto}</td>
+      <td>${element.categoria}</td>
+      <td>${element.precio}</td></tr>`
+    );
+  });
+  document.write(`</tr></tbody>
+</table> <hr>`);
+} 
+mostrarTabla();
+
+function filtrarProtectores() {
+  document.write(
+    `<h2>Tabla filtrada Protectores Solares </h2>
+<table class="table-bordered border-warning-subtle"><thead>
+<tr>
+<th>Producto</th>
+<th>Precio</th>
+<th>Categoria</th>
+</tr>
+</thead>
+<tbody>`
+  );
+  listaProductos.forEach((element) => {
+    element.nombreProducto.includes(`Protector solar`)
+      ? document.write(
+          `<tr>
+          <td>${element.nombreProducto}</td>
+          <td>${element.categoria}</td>
+          <td>${element.precio}</td></tr>`
+        )
+      : false;
+  });
+  document.write(`</tbody></table><hr>`);
+}
+filtrarProtectores();
+
+function buscarSerum() {
+  document.write(
+    `<h2>Tabla filtrada Serum </h2>
+<table class="table-bordered border-warning-subtle"><thead>
+<tr>
+<th>Producto</th>
+<th>Precio</th>
+<th>Categoria</th>
+</tr>
+</thead>
+<tbody>`
+  );
+  listaProductos.forEach((element) => {
+    element.categoria.includes(`Sérum`)
+      ? document.write(
+          `<tr><td>${element.nombreProducto}</td><td>${element.categoria}</td><td>${element.precio}</td></tr>`
+        )
+      : false;
+  });
+  document.write(`</tbody></table>`);
+}
+buscarSerum();
+
+function buscarBruma() {
+  let productoBuscado = false;
+  document.write(
+    `<h2>Tabla filtrada Bruma </h2>
+<table class="table-bordered border-warning-subtle"><thead>
+<tr>
+<th>Producto</th>
+<th>Precio</th>
+<th>Categoria</th>
+</tr>
+</thead>
+<tbody>`
+  );
+  listaProductos.forEach((element) => {
+    element.categoria.includes(`Bruma`)
+      ? ((productoBuscado = true),
+        document.write(
+          `<tr><td>${element.nombreProducto}</td><td>${element.categoria}</td><td>${element.precio}</td></tr>`
+        ))
+      : productoBuscado = false;
+  });
+  productoBuscado ? true : alert(`El producto buscado 'Bruma', no existe.`)
+  document.write(`</tbody></table>`);
+}
+buscarBruma();
